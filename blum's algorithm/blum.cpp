@@ -2,7 +2,7 @@
 using namespace std;
 int blum(int *a,int c,int d,int k)
 {
-    int n=(d-c)
+    int n=(d-c);
     if(n<=80)
     {
     sort(a+c,a+d);
@@ -23,8 +23,9 @@ int blum(int *a,int c,int d,int k)
     {
         if(i%5==2)medians[i/5]=b[i/5][i%5];
     }
-    int m=(n%5>=2)?blum(medians,c,(n/5)+1,((n/5)+1)/2):blum(medians,c,(n/5),((n/5))/2)
-    int i=c,j=d;
+    int m=(n%5>=2)?blum(medians,c,(n/5)+1,((n/5)+1)/2):blum(medians,c,(n/5),((n/5))/2);
+    int i=c;
+    int j=d;
     while(j>=i)
     {
     if(a[i]<m)i++;
@@ -34,8 +35,8 @@ int blum(int *a,int c,int d,int k)
     a[j]=t;
     }
     if(j==k){return a[j];}
-    if(j<k){return blum(a,c,k);}
-    else {return blum(a,c,j-k);}
+    if(j<k){return blum(a,c,d-j,k);}
+    else {return blum(a,j,d,j-k);}
 
 
 
